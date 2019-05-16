@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="demo.css" rel="stylesheet">
+  <script src="vue.js"></script>
+</head>
+
+<body>
+
+  <div id = "app">
+        <input type="text" v-on:input='changeTitle'>
+        <p v-once>
+          {{title}}
+        </p>
+        <span v-bind:title="message">
+        Hover your mouse over me for a few seconds
+        to see my dynamically bound title!
+      </span>
+      <p>{{ sayHello() }}</p>
+      <a v-bind:href="link">ZELDA!!!</a>
+      <hr/>
+      <span v-html="showSomeHTML"></span>
+      <hr/>
+      <h1>This will be a test</h1>
+
+      <button v-on:click="clicked++">Click me for more cookies</button>
+      <button v-on:click="clicked--">Click me for less cookies</button>
+       <button v-on:click="table--">Click me for less tables</button>
+      <p>
+      you have clicked me {{table}} : {{clicked}} times
+       </p>
+       <p>
+      This is a result {{result}} (Computed) :{{tableFlip()}} (Methods)
+       </p>
+
+       <p>
+         <a :href="anotherLink">Goes to google</a>
+         <button @click="changeLink">Change the url</button>
+       </p>
+
+         <div class ="demo"
+         @click = "isAttatched = !isAttatched"
+         :class="divClasses"
+         ></div>
+         <p>This is using a computed method</p>
+         <div class = "demo" :class = "[color,{red: isAttatched}] "></div>
+         <p>this is using a computed method</p>
+         <div class = demo :style="myStyle"></div>
+         <hr>
+         <div class = demo :style="[myStyle,{height: width + 'px'}]"></div>
+         <input type="text" v-model="color">
+         <input type="text" v-model=width>
+      </div>
+
+
+
+  <script>
+  new Vue({
+    el: '#app',
+    data:{
+      title:'Hello World',
+      butt:"Holy butt i have a butt",
+      link: "https://www.w3schools.com/jsref/event_target.asp",
+      anotherLink:"https://www.google.com",
+      showSomeHTML:"<li>yeet</li><li>yeeting</li><li>yeeter</li><li>becareful, this can be used as for a cross site scriptnig attack</li>",
+      clicked: 0,
+      table:0,
+      isAttatched: false,
+      color:"green",
+      width: 100,
+      height:100
+    },
+    computed:{
+   	 result(){
+       return  this.clicked > 5 ? "it is more than 5" : "it is less than 5"
+      },
+      divClasses(){
+      return{
+      	red: this.isAttatched,
+      	blue: !this.isAttatched
+      	}
+      },
+      myStyle(){
+      	return{
+      		backgroundColor: this.color,
+          width: this.width +"px"
+      	}
+      }
+    },
+    watch:{
+    	clicked(value){
+      var vu = this
+      setTImer(function(){
+      	vu.counter = 0;
+      },2000)
+      }
+    },
+    methods:{
+      changeTitle: function(event){
+        this.title = event.target.value;
+      },
+      sayHello:function(){
+      return this.title;
+      },
+      cookieClicker: function(){
+      	this.clicked++;
+      },
+      tableFlip(){
+       return  this.clicked > 5 ? "it is more than 5" : "it is less than 5"
+      },
+      changeLink(){
+      	this.anotherLink = "https://www.youtube.com"
+      }
+
+    }
+  })
+
+  </script>
+</body>
+
+</html>
