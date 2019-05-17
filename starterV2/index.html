@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <p v-if = "show">Can you see me now</p>
+    <p v-else>in paradise?</p>
+    <button @click = "show = !show"> click me to show</button>
+
+    <hr>
+
+    <template v-if ="show">
+      <h1>This is grouped</h1>
+      <p>You can see it by using template</p>
+    </template>
+    <template v-else>
+      <p>This is the else</p>
+      <p>using v-else</p>
+    </template>
+    <p v-show = "!show">You can see this element, but not remove it entirely</p>
+    <button @click = "show = !show"> Mighty glad you stayed</button>
+    <hr>
+    <ul>
+      <li v-for="(ingredient,i) in ingredients">{{ingredient}} : at index     ({{i}}) </li>
+    </ul>
+    <br>
+    <template v-for="(ingredient,i) in ingredients" :key = "ingredient">
+      <p>{{ingredient}}</p>
+      <p>at index {{i}}</p>
+    </template>
+    <button @click = "ingredients.push('spice')"> click for thins</button>
+    <br>
+    <ul>
+      <li v-for = "person in persons">
+        <div v-for = "(value, key, index) in person"> {{value}} {{key}} {{index}}</div>
+      </li>
+    </ul>
+    <span v-for = "n in 10">{{n}} </span>
+  </div>
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+  new Vue({
+    el: "#app",
+    data: {
+      show:true,
+      ingredients:["Tomatos","Onions","Garlic"],
+    persons:[
+      {name:"Max", age:21, color:'red'},
+      {name:"Bob",age:31,color:'blue'}
+    ]},
+  })
+
+  </script>
+</body>
+
+</html>

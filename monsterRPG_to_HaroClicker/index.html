@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="vue.js"></script>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <h1>HARO CLICKER!!!!</h1>
+    <p>You have {{totalHaro}} Haro</p>
+    <div class = "clickerBar" :style="{width: (totalHaro/5)+'px'}"></div>
+    <button type="button" name="button" @click="totalHaro += haroPerClick">Click me for more haro</button>
+
+    <div v-if= "totalHaro > 100 ">
+      <p>I AM FUCKIN HERE</p>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+  <!--Remember to have the js file be at the bottom or else it won't render-->
+  <script src = "component.js"></script>
+</body>
+
+</html>
