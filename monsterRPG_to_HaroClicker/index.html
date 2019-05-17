@@ -16,14 +16,20 @@
 
 <body>
 
-  <div id="app">
+  <div id="app" >
     <h1>HARO CLICKER!!!!</h1>
     <p>You have {{totalHaro}} Haro</p>
     <div class = "clickerBar" :style="{width: (totalHaro/5)+'px'}"></div>
     <button type="button" name="button" @click="totalHaro += haroPerClick">Click me for more haro</button>
 
-    <div v-if= "totalHaro > 100 ">
-      <p>I AM FUCKIN HERE</p>
+    <div >
+      <h2>Gunpla Store</h2>
+      <div v-if= "totalHaro > 100 ">
+        <button type="button" name="button">Gundam Age</button>
+        <button type="button" name="button">G Gundam</button>
+        <button type="button" name="button">Gundam Wing</button>
+      </div>
+
     </div>
 
 
