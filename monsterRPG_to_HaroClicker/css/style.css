@@ -1,8 +1,22 @@
 .clickerBar{
   background-color: green;
   height:50px;
-  width:10%;
+  width:0%;
+  margin:auto;
 }
 #app{
   text-align: center;
+}
+
+.bigButton{
+  width:500px;
+  justify-content: center;
+  margin:auto;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .15s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
