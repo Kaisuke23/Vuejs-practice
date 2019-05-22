@@ -98,10 +98,10 @@
       }
     },
     watch:{
-    	clicked(value){
+    	clicked: function(value){
       var vu = this
-      setTImer(function(){
-      	vu.counter = 0;
+      setTimeout(function(){
+      	vu.clicked = 0;
       },2000)
       }
     },

@@ -33,9 +33,19 @@
         <transition name= "fade">
           <button type="button"
             class = "btn btn-outline-primary btn-lrg"
-            v-if="clicked.age" @click="clickCalculated">Gundam Age</button>
+            v-if="runner" @click="runnerChanger">Gundam Age</button>
           </transition>
-          <button type="button" class = "btn btn-outline-primary btn-lrg" >G Gundam</button>
+        <transition name= "fade">
+          <button type="button"
+            class = "btn btn-outline-primary btn-lrg"
+            v-if="clicked.age" @click="clickCalculated(5,2,'age')">Gundam Age</button>
+          </transition>
+
+        <transition name= "fade">
+          <button type="button" class = "btn btn-outline-primary btn-lrg"
+          v-if="clicked.GGundam" @click="clickCalculated(10,5,'GGundam')">G Gundam</button>
+        </transition>
+
           <button type="button" class = "btn btn-outline-primary btn-lrg">Gundam Wing</button>
       </div>
 
